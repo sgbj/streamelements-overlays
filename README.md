@@ -13,7 +13,7 @@ Easily share StreamElements overlays with your friends. Built with Next.js, Next
 * 🔐 Authentication using NextAuth.js and StreamElements OAuth
 * 📊 PostgreSQL database with Prisma ORM
 * ✨ Responsive UI and light/dark mode built with Tailwind and shadcn/ui
-* * 🚀 Deployed using Vercel
+* 🚀 Deployed using Vercel
 
 ## Getting Started
 

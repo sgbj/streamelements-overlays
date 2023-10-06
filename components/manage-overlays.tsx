@@ -170,7 +170,7 @@ export function ManageOverlays({
         ))}
         {sharedOverlays.length === 0 && (
           <p className="text-center my-8 text-xl text-slate-600 dark:text-slate-400 leading-8">
-            You haven't shared any overlays yet. 🥺
+            You haven&apo;t shared any overlays yet. 🥺
           </p>
         )}
       </div>

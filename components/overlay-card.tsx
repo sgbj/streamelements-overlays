@@ -41,7 +41,7 @@ export function OverlayCard({
         <div className="rounded mt-2 p-2 pr-3 bg-accent flex items-center">
           <div
             className="rounded bg-cover bg-center w-8 h-8 mr-2"
-            style={{ backgroundImage: `url(${sharedOverlay.preview})` }}
+            style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
           />
           {sharedOverlay.name}
         </div>
@@ -70,7 +70,7 @@ export function OverlayCard({
       <div className="flex-grow flex-shrink-0 flex items-center space-x-4">
         <div
           className="rounded bg-cover bg-center w-10 h-10"
-          style={{ backgroundImage: `url(${sharedOverlay.preview})` }}
+          style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
         />
         <div className="font-semibold">{sharedOverlay.name}</div>
       </div>

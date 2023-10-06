@@ -61,7 +61,7 @@ export function InstallOverlay({
       <div className="flex items-center justify-center mb-8">
         <div
           className="rounded bg-cover bg-center w-24 h-24 me-4"
-          style={{ backgroundImage: `url(${sharedOverlay.preview})` }}
+          style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
         />
         <div>
           <h1 className="text-3xl font-bold border-b pb-2 mb-2">

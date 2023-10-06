@@ -77,7 +77,7 @@ export function ManageOverlays({
           <div className="rounded mt-2 p-2 pr-3 bg-accent flex items-center">
             <div
               className="rounded bg-cover bg-center w-8 h-8 mr-2"
-              style={{ backgroundImage: `url(${sharedOverlay.preview})` }}
+              style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
             />
             {sharedOverlay.name}
           </div>
@@ -170,7 +170,7 @@ export function ManageOverlays({
         ))}
         {sharedOverlays.length === 0 && (
           <p className="text-center my-8 text-xl text-slate-600 dark:text-slate-400 leading-8">
-            You haven&apo;t shared any overlays yet. 🥺
+            You haven&apos;t shared any overlays yet. 🥺
           </p>
         )}
       </div>

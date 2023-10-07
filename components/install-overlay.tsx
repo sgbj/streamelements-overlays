@@ -58,11 +58,13 @@ export function InstallOverlay({
           An error occurred! Please try again.
         </p>
       )}
-      <div className="flex items-center justify-center mb-8">
-        <div
-          className="rounded bg-cover bg-center w-24 h-24 me-4"
-          style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
-        />
+      <div className="flex flex-col sm:flex-row items-center mb-8 sm:space-x-4 space-y-6 sm:space-y-0">
+        <div className="flex-grow flex-shrink-0">
+          <div
+            className="rounded bg-cover bg-center w-32 h-32 sm:w-24 sm:h-24"
+            style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
+          />
+        </div>
         <div>
           <h1 className="text-3xl font-bold border-b pb-2 mb-2">
             {sharedOverlay.name}

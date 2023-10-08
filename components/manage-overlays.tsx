@@ -71,18 +71,6 @@ export function ManageOverlays({
       navigator.clipboard.writeText(
         `${process.env.NEXT_PUBLIC_URL}/share/${sharedOverlay.id}`
       );
-      toast({
-        title: "Link copied to clipboard!",
-        description: (
-          <div className="rounded mt-2 p-2 pr-3 bg-accent flex items-center">
-            <div
-              className="rounded bg-cover bg-center w-8 h-8 mr-2"
-              style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
-            />
-            {sharedOverlay.name}
-          </div>
-        ),
-      });
     } catch (ex) {
       console.log(ex);
     }

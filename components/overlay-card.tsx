@@ -20,7 +20,7 @@ import {
   DialogTitle,
 } from "./ui/dialog";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export function OverlayCard({
   sharedOverlay,
@@ -28,6 +28,8 @@ export function OverlayCard({
   sharedOverlay: SharedOverlay;
 }) {
   const router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [copyOpen, setCopyOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -35,18 +37,9 @@ export function OverlayCard({
     navigator.clipboard.writeText(
       `${process.env.NEXT_PUBLIC_URL}/share/${sharedOverlay.id}`
     );
-    toast({
-      title: "Link copied to clipboard!",
-      description: (
-        <div className="rounded mt-2 p-2 pr-3 bg-accent flex items-center">
-          <div
-            className="rounded bg-cover bg-center w-8 h-8 mr-2"
-            style={{ backgroundImage: `url("${sharedOverlay.preview}")` }}
-          />
-          {sharedOverlay.name}
-        </div>
-      ),
-    });
+    inputRef.current?.select();
+    setCopyOpen(true);
+    setTimeout(() => setCopyOpen(false), 1500);
   }
 
   async function onDelete() {
@@ -75,12 +68,22 @@ export function OverlayCard({
         <div className="font-semibold">{sharedOverlay.name}</div>
       </div>
       <div className="flex-shrink-0 flex items-center space-x-2">
-        <Input
-          value={`${process.env.NEXT_PUBLIC_URL}/share/${sharedOverlay.id}`}
-          onFocus={(e) => e.target.select()}
-          readOnly
-          className="me-2"
-        />
+        <TooltipProvider>
+          <Tooltip open={copyOpen}>
+            <TooltipTrigger>
+              <Input
+                ref={inputRef}
+                value={`${process.env.NEXT_PUBLIC_URL}/share/${sharedOverlay.id}`}
+                onFocus={() => inputRef.current?.select()}
+                readOnly
+                className="me-2"
+              />
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>Copied to clipboard!</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>

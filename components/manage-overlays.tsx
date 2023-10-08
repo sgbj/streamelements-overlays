@@ -140,6 +140,16 @@ export function ManageOverlays({
                   )}
                 />
                 <DialogFooter>
+                  <Button
+                    variant="outline"
+                    type="button"
+                    onClick={() => {
+                      setShareOpen(false);
+                      form.reset();
+                    }}
+                  >
+                    Cancel
+                  </Button>
                   <Button type="submit" disabled={form.formState.isSubmitting}>
                     Share
                     {form.formState.isSubmitting && (

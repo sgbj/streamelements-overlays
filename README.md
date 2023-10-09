@@ -2,9 +2,9 @@
 
 Easily share StreamElements overlays with your friends. Built with Next.js, NextAuth.js, Vercel, Prisma, and Tailwind.
 
-![Install overlays](https://github.com/sgbj/streamelements-overlays/assets/5178445/50641e76-8e58-4a61-9677-62b82eff4d77)
+![Install overlay](https://github.com/sgbj/streamelements-overlays/assets/5178445/f2609391-0d60-4def-b762-80737a74c392)
 
-![Manage and share overlays](https://github.com/sgbj/streamelements-overlays/assets/5178445/2f0f8248-e571-439b-a3db-6ff49f9eeec6)
+![Share and manage overlays](https://github.com/sgbj/streamelements-overlays/assets/5178445/2bd934fd-57e3-40ba-8b5d-e8ccc81bd3b0)
 
 ## Features
 

@@ -105,6 +105,7 @@ export const authOptions: AuthOptions = {
       const data = await res.json();
 
       if (!res.ok) {
+        // TODO https://authjs.dev/guides/basics/refresh-token-rotation
         await db.session.deleteMany({
           where: { userId: user.id },
         });

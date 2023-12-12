@@ -33,7 +33,9 @@ export const authOptions: AuthOptions = {
               }),
             }
           );
+
           const data = await res.json();
+
           return {
             tokens: {
               ...data,
@@ -51,7 +53,27 @@ export const authOptions: AuthOptions = {
               },
             }
           );
+
           const data = await res.json();
+
+          if (!res.ok) {
+            throw data;
+          }
+
+          await db.account.update({
+            data: {
+              access_token: context.tokens.access_token,
+              expires_at: context.tokens.expires_at,
+              refresh_token: context.tokens.refresh_token,
+            },
+            where: {
+              provider_providerAccountId: {
+                provider: "streamelements",
+                providerAccountId: data._id,
+              },
+            },
+          });
+
           return data;
         },
       },
@@ -80,11 +102,14 @@ export const authOptions: AuthOptions = {
         }
       );
 
+      const data = await res.json();
+
       if (!res.ok) {
         await db.session.deleteMany({
           where: { userId: user.id },
         });
-        throw new Error("Invalid access token");
+
+        throw data;
       }
 
       session.user.id = user.id;

@@ -60,7 +60,7 @@ export const authOptions: AuthOptions = {
             throw data;
           }
 
-          await db.account.update({
+          /*await db.account.update({
             data: {
               access_token: context.tokens.access_token,
               expires_at: context.tokens.expires_at,
@@ -72,7 +72,7 @@ export const authOptions: AuthOptions = {
                 providerAccountId: data._id,
               },
             },
-          });
+          });*/
 
           return data;
         },

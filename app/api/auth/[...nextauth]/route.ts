@@ -60,19 +60,17 @@ export const authOptions: AuthOptions = {
             throw data;
           }
 
-          /*await db.account.update({
+          await db.account.updateMany({
             data: {
               access_token: context.tokens.access_token,
               expires_at: context.tokens.expires_at,
               refresh_token: context.tokens.refresh_token,
             },
             where: {
-              provider_providerAccountId: {
-                provider: "streamelements",
-                providerAccountId: data._id,
-              },
+              provider: "streamelements",
+              providerAccountId: data._id,
             },
-          });*/
+          });
 
           return data;
         },
